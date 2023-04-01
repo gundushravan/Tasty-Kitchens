@@ -1,15 +1,21 @@
-.counter-cont {
+.cart-quantity-container {
   display: flex;
   align-items: center;
-  height: 38px;
-  margin-left: 0;
-  padding-left: 0;
 }
-
-.counter-cont > button {
-  background: transparent;
-  margin: 0 8px;
-  border: 1px solid #334155;
-  border-radius: 3px;
+.food-quantity {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #475569;
+}
+.quantity-button {
+  border: 0.75px solid #475569;
+  color: #475569;
+  width: 18px;
+  height: 18px;
+  outline: none;
   cursor: pointer;
 }

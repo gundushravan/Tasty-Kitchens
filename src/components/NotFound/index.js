@@ -1,34 +1,23 @@
 import {Link} from 'react-router-dom'
 import './index.css'
 
-const NotFound = props => {
-  const onClickHomePage = () => {
-    const {history} = props
-    history.replace('/')
-  }
-  return (
-    <div className="not-found-cont">
-      <img
-        src="https://res.cloudinary.com/dcxurp30f/image/upload/v1672758002/erroring_1_otifls.png"
-        alt="not found"
-        className="not-found-img"
-      />
-      <h1>Page Not Found</h1>
-      <p className="txt1">
-        We are sorry, the page you requested could not be found.
-      </p>
-      <p className="txt2">Please go back to homepage</p>
-      <Link to="/">
-        <button
-          type="button"
-          onClick={onClickHomePage}
-          className="home-page-btn"
-        >
-          Home page
-        </button>
-      </Link>
-    </div>
-  )
-}
-
+const NotFound = () => (
+  <div className="nf-container">
+    <img
+      src="https://res.cloudinary.com/dtkrnw0fu/image/upload/v1680088239/erroring_1_x03z9l.png"
+      className="nf-image"
+      alt="not found"
+    />
+    <h1 className="nf-heading">Page Not Found</h1>
+    <p className="nf-note">
+      we are sorry, the page you requested could not be found Please go back to
+      the homepage
+    </p>
+    <Link to="/" className="nf-link">
+      <button type="button" className="nf-button">
+        Home Page
+      </button>
+    </Link>
+  </div>
+)
 export default NotFound

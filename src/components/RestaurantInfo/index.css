@@ -1,0 +1,165 @@
+.rest-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  position: static;
+}
+
+.rest-top-section {
+  background-image: url('https://res.cloudinary.com/dkwefqjnn/image/upload/v1660709071/Frame_279_wi2jco.jpg');
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 190px;
+  margin-top: 30px;
+  padding: 15px 6px 30px 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .rest-top-section {
+    top: 100px;
+    width: 100%;
+    padding: 33px 0px 33px 0px;
+    height: 344px;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+}
+
+.rest-banner {
+  display: flex;
+  align-items: center;
+}
+.rest-banner-image {
+  width: 170px;
+  height: 170px;
+  border-radius: 200px;
+}
+@media screen and (min-width: 768px) {
+  .rest-banner-image {
+    width: 445px;
+    height: 300px;
+    border-radius: 8px;
+  }
+}
+.rest-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.rest-banner-name {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .rest-banner-name {
+    font-size: 36px;
+    line-height: 48px;
+  }
+}
+.rest-banner-cuisine {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  color: #ffffff;
+  margin: 0;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .rest-banner-cuisine {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+}
+.ratings-cost-container {
+  display: flex;
+  align-items: center;
+}
+.star-rating {
+  display: flex;
+  flex-direction: column;
+}
+.star-text {
+  display: flex;
+  align-items: center;
+}
+.rest-banner-rating {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  color: #ffffff;
+  margin: 0;
+}
+.rest-banner-reviews {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: #e2e8f0;
+  margin: 0;
+}
+.cost-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.rest-banner-cost {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  color: #ffffff;
+  margin: 0;
+}
+.rest-cost {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #e2e8f0;
+  margin: 0;
+}
+.banner-line {
+  border: 1px solid #e2e8f0;
+  height: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.cost-two {
+  display: flex;
+  flex-direction: column;
+}
+.food-items-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 768px) {
+  .food-items-container {
+    width: 90%;
+    padding-left: 150px;
+  }
+}
+.details-loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+}

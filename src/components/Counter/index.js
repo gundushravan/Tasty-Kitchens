@@ -1,24 +1,35 @@
 import './index.css'
 
 const Counter = props => {
-  const {quantity, onClickPlus, onClickMinus} = props
-  const plusClicked = () => {
-    onClickPlus()
+  const {foodId, quantity, increaseQuantity, decreaseQuantity} = props
+
+  const onDecrement = () => {
+    decreaseQuantity(foodId)
   }
-  const minusClicked = () => {
-    onClickMinus()
+
+  const onIncrement = () => {
+    increaseQuantity(foodId)
   }
+
   return (
-    <div className="counter-cont">
+    <div className="cart-quantity-container">
       <button
         type="button"
-        data-testid="decrement-count"
-        onClick={minusClicked}
+        data-testid="decrement-quantity"
+        className="quantity-button"
+        onClick={onDecrement}
       >
         -
       </button>
-      <p data-testid="active-count">{quantity}</p>
-      <button type="button" data-testid="increment-count" onClick={plusClicked}>
+      <p data-testid="item-quantity" className="food-quantity">
+        {quantity}
+      </p>
+      <button
+        type="button"
+        data-testid="increment-quantity"
+        className="quantityy-button"
+        onClick={onIncrement}
+      >
         +
       </button>
     </div>

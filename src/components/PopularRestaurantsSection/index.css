@@ -1,0 +1,14 @@
+.restaurants-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 13px;
+}

@@ -1,0 +1,63 @@
+.restaurants-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurants-container {
+    width: 78%;
+  }
+}
+.restaurants-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+}
+.restaurants-unorderedList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+@media screen and (min-width: 768px) {
+  .restaurants-unorderedList {
+    padding: 0;
+  }
+}
+
+.pagination-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+  width: 130px;
+}
+
+.pagination-button {
+  height: 25px;
+  width: 25px;
+  border: 1px solid #334155;
+  background-color: transparent;
+  color: #334155;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.page-number {
+  font-family: Bree Serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 24px;
+  text-align: center;
+  color: #334155;
+}

@@ -1,38 +1,43 @@
-import {Component} from 'react'
 import {
   FaPinterestSquare,
-  FaFacebookSquare,
   FaInstagram,
   FaTwitter,
+  FaFacebookSquare,
 } from 'react-icons/fa'
 
 import './index.css'
 
-class Footer extends Component {
-  render() {
-    return (
-      <div className="footer-container">
-        <div className="footer-logo-cont">
-          <img
-            src="https://res.cloudinary.com/dcxurp30f/image/upload/v1672755139/Frame_275_npbx1a.png"
-            alt="website-footer-logo"
-            className="footer-logo"
-          />
-          <h1 className="footer-logo-title">Tasty Kitchens</h1>
-        </div>
-        <p className="txt1">
-          The only thing we are serious about is food.
-          <br /> Contact us on
-        </p>
-        <div className="socials">
-          <FaPinterestSquare data-testid="pintrest-social-icon" />
-          <FaInstagram testid="instagram-social-icon" />
-          <FaTwitter testid="twitter-social-icon" />
-          <FaFacebookSquare testid="facebook-social-icon" />
-        </div>
+export default function Footer() {
+  return (
+    <div className="footer-container">
+      <div className="logo-name">
+        <img
+          src="https://res.cloudinary.com/dkwefqjnn/image/upload/v1660546241/Group_7420_rc9w1v.png"
+          alt="website-footer-logo"
+          className="footer-logo"
+        />
+        <h1 className="footer-heading">Tasty Kitchens</h1>
       </div>
-    )
-  }
+      <p className="footer-description">
+        The only thing we are serious about is food. <br />
+        Contact us on
+      </p>
+      <div className="sm-logos">
+        <ul className="sm-list">
+          <li className="sm-logo">
+            <FaPinterestSquare testid="pintrest-social-icon" color="#FFFFFF" />
+          </li>
+          <li className="sm-logo">
+            <FaInstagram testid="instagram-social-icon" color="#FFFFFF" />
+          </li>
+          <li className="sm-logo">
+            <FaTwitter testid="twitter-social-icon" color="#FFFFFF" />
+          </li>
+          <li className="sm-logo">
+            <FaFacebookSquare testid="facebook-social-icon" color="#FFFFFF" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  )
 }
-
-export default Footer

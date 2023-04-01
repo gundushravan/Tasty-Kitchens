@@ -1,175 +1,125 @@
 import {Component} from 'react'
-import {Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
+
 import './index.css'
 
 class Login extends Component {
-  state = {username: '', password: '', isError: false, errMsg: ''}
-
-  onChangeUsername = e => {
-    this.setState({username: e.target.value})
+  state = {
+    username: '',
+    password: '',
+    showError: false,
+    errorMsg: '',
   }
 
-  onChangePassword = e => {
-    this.setState({password: e.target.value})
+  onChangeUsername = event => {
+    this.setState({username: event.target.value})
   }
 
-  onChangeCheckbox = e => {
-    const passElement = document.querySelector('.passElementD')
-    if (e.target.checked) {
-      passElement.type = 'text'
-    } else {
-      passElement.type = 'password'
-    }
+  onChangePassword = event => {
+    this.setState({password: event.target.value})
   }
 
-  onChangeCheckboxMobile = e => {
-    const passElement = document.querySelector('.passElement')
-    if (e.target.checked) {
-      passElement.type = 'text'
-    } else {
-      passElement.type = 'password'
-    }
+  renderUsernameInput = () => {
+    const {username} = this.state
+    return (
+      <>
+        <label htmlFor="username" className="label">
+          USERNAME
+        </label>
+        <input
+          type="text"
+          id="username"
+          className="input"
+          value={username}
+          placeholder="Username"
+          onChange={this.onChangeUsername}
+        />
+      </>
+    )
   }
 
-  onSubmitSuccess = JWTtoken => {
+  renderPasswordInput = () => {
+    const {password} = this.state
+    return (
+      <>
+        <label htmlFor="password" className="label">
+          PASSWORD
+        </label>
+        <input
+          type="password"
+          id="password"
+          className="input"
+          value={password}
+          placeholder="Password"
+          onChange={this.onChangePassword}
+        />
+      </>
+    )
+  }
+
+  loginSuccessful = jwtToken => {
     const {history} = this.props
-    Cookies.set('jwt_token', JWTtoken, {expires: 30})
+    Cookies.set('jwt_token', jwtToken, {expires: 30, path: '/'})
     history.replace('/')
   }
 
-  onSubmitFailure = errMsg => {
-    this.setState({isError: true, errMsg})
+  loginFailure = errorMsg => {
+    this.setState({showError: true, errorMsg})
   }
 
-  onSubmitForm = async event => {
+  onFormSubmit = async event => {
     event.preventDefault()
-    const url = 'https://apis.ccbp.in/login'
     const {username, password} = this.state
     const userDetails = {username, password}
+    const loginUrl = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
       body: JSON.stringify(userDetails),
     }
-    const response = await fetch(url, options)
+    const response = await fetch(loginUrl, options)
     const data = await response.json()
-    if (response.ok) {
-      this.onSubmitSuccess(data.jwt_token)
+    if (response.ok === true) {
+      this.loginSuccessful(data.jwt_token)
     } else {
-      this.onSubmitFailure(data.error_msg)
+      this.loginFailure(data.error_msg)
     }
   }
 
   render() {
-    const {username, password, isError, errMsg} = this.state
+    const {showError, errorMsg} = this.state
     const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
       return <Redirect to="/" />
     }
     return (
-      <>
-        <div className="bg-container">
-          <div className="login-details">
-            <div className="card-cont">
-              <div className="logo-cont">
-                <img
-                  src="https://res.cloudinary.com/dcxurp30f/image/upload/v1672746641/logo_wqzjft.png"
-                  alt="website logo"
-                  className="logo"
-                />
-                <h1 className="logo-title">Tasty Kitchens</h1>
-              </div>
-              <h1 className="login-txt">Login</h1>
-              <form onSubmit={this.onSubmitForm}>
-                <label htmlFor="user">USERNAME</label>
-                <input
-                  type="text"
-                  id="user1"
-                  placeholder="Username"
-                  value={username}
-                  onChange={this.onChangeUsername}
-                />
-                <label htmlFor="passD">PASSWORD</label>
-                <input
-                  type="password"
-                  id="passD"
-                  placeholder="Password"
-                  className="passElementD"
-                  value={password}
-                  onChange={this.onChangePassword}
-                />
-                <div className="pass-check">
-                  <input
-                    type="checkbox"
-                    id="showPassD"
-                    className="checkbox"
-                    onChange={this.onChangeCheckbox}
-                  />
-                  <label htmlFor="showPassD" className="label-pass">
-                    Show Password
-                  </label>
-                </div>
-                {isError && <p className="error">{errMsg}</p>}
-                <button type="submit" className="login-btn">
-                  Login
-                </button>
-              </form>
-            </div>
-          </div>
-          <div className="img-cont">
-            <img
-              src="https://res.cloudinary.com/dcxurp30f/image/upload/v1672742515/Rectangle_1456_sbtwrd.png"
-              alt="website login"
-              className="login-img"
-            />
-          </div>
-        </div>
-        <div className="mobile-bg-container">
+      <div className="login-container">
+        <div className="login-img">
           <img
-            src="https://res.cloudinary.com/dcxurp30f/image/upload/v1675138419/Rectangle_1457_jtwoto.png"
             alt="website login"
-            className="mobile-img"
+            className="login-bg"
+            src="https://res.cloudinary.com/dtkrnw0fu/image/upload/v1680085518/Rectangle_1456_zseore.png"
           />
-          <form onSubmit={this.onSubmitForm}>
-            <h1>Login</h1>
-            <label htmlFor="userM">USERNAME</label>
-            <input
-              type="text"
-              id="userM"
-              placeholder="Username"
-              value={username}
-              onChange={this.onChangeUsername}
+        </div>
+        <div>
+          <form onSubmit={this.onFormSubmit} className="form-container">
+            <img
+              src="https://res.cloudinary.com/dtkrnw0fu/image/upload/v1680085469/Frame_274_sadxnc.png"
+              className="login-desktop"
+              alt="website logo"
             />
-            <label htmlFor="passM">PASSWORD</label>
-            <input
-              type="password"
-              id="passM"
-              placeholder="Password"
-              className="passElement"
-              value={password}
-              onChange={this.onChangePassword}
-            />
-            <div className="pass-check">
-              <input
-                type="checkbox"
-                id="showPass"
-                className="checkbox"
-                onChange={this.onChangeCheckboxMobile}
-              />
-              <label htmlFor="showPass" className="label-pass">
-                Show Password
-              </label>
-            </div>
-
-            {isError && <p className="error">{errMsg}</p>}
-            <button type="submit" className="login-btn">
+            <h1 className="form-title">Tasty Kitchens</h1>
+            <h1 className="form-login-text">Login</h1>
+            <div className="input-container">{this.renderUsernameInput()}</div>
+            <div className="input-container">{this.renderPasswordInput()}</div>
+            <button type="submit" className="login-button">
               Login
             </button>
+            {showError && <p className="error-message">{errorMsg}</p>}
           </form>
         </div>
-      </>
+      </div>
     )
   }
 }
-
 export default Login

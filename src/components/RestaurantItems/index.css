@@ -1,0 +1,80 @@
+.item-link {
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 15px;
+}
+@media screen and (min-width: 768px) {
+  .item-link {
+    width: 30%;
+    margin-bottom: 30px;
+  }
+}
+.rest-item {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.rest-image {
+  height: 100px;
+  width: 170px;
+  border-radius: 8px;
+}
+.rest-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.rest-name {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  margin: 0;
+  color: #334155;
+}
+
+.rest-cuisine {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #64748b;
+  margin: 0;
+}
+
+.rest-ratings {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.star-icon {
+  margin-right: 5px;
+}
+.rest-userRating {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #1e293b;
+  margin: 0 5px 0 0;
+}
+
+.total-reviews {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #64748b;
+  margin: 0;
+}
